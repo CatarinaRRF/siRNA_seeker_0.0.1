@@ -1,0 +1,79 @@
+{% extends 'main_dashboard.html' %}
+{% load static %}
+
+
+
+{% block content%}
+<div> 
+    <div>
+    <!--Table-->
+    <style>
+		table {
+			border:1px solid #b3adad;
+			border-collapse:collapse;
+			padding:5px;
+		}
+		table th {
+			border:1px solid #b3adad;
+			padding:5px;
+			background: #f0f0f0;
+			color: #313030;
+		}
+		table td {
+			border:1px solid #b3adad;
+			text-align:center;
+			padding:5px;
+			background: #ffffff;
+			color: #313030;
+		}
+	</style>
+    <table>
+        <thead>
+            <tr>
+                <th>Sequencia 5-3</th>
+                <th>Posicao Alinhamento</th>
+                <th>Score</th>
+                <th>TM Score</th>
+                <th>Conteudo GC</th>
+                <th>energia livre</th>
+                <th>falha</th>
+            </tr>
+        </thead>
+        <body>
+            <tr>
+                {% if d %}
+                {% for i in d %}
+                <td>{{ i.siRNA_verificados}}</td>
+                <td>{{ i.posicao_alinhamento }}</td>
+                <td>{{ i.pontuacao }}</td>
+                <td>{{ i.temperatura_de_melting }}</td>
+                <td>{{ i.conteudo_CG }}</td>
+                <td>{{ i.energia_livre }}</td>
+                <td>{{ i.falhas }}</td>
+                {% endfor %}
+                {%endif%}
+            </tr>
+
+        </body>
+    </table>
+
+    </div>
+</div>
+
+<div>
+    <div padding-top="20px">
+    <!--Alinhamento Chart-->
+        <h6> Alinhamento, identidade e Query Cover</h6>
+    </div>
+
+    <div style='text-align: center;'>
+    <!--Blast Chart-->
+        <img src="{% static '/img/grafho.png' %}" width="550px">
+    </div>
+    <div>
+    <!--Sequence Info-->
+                
+    </div>
+</div>
+
+{% endblock %}
